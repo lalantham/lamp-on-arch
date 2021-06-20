@@ -19,39 +19,39 @@
 ## 03 - PHP Mysql Module
 
 	2.1 - /etc/httpd/conf/httpd.conf
-			#LoadModule mpm_event_module modules/mod_mpm_event.so
-       LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
-      - Place this at the end of the LoadModule list:
-       	LoadModule php_module modules/libphp.so
-	      AddHandler php-script .php
-      - Place this at the end of the Include list:
-        Include conf/extra/php_module.conf
-      - sudo nano  /etc/php/php.ini
-	      extension=mysqli
+		#LoadModule mpm_event_module modules/mod_mpm_event.so
+       		LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
+      	    - Place this at the end of the LoadModule list:
+       	        LoadModule php_module modules/libphp.so
+	        AddHandler php-script .php
+            - Place this at the end of the Include list:
+                Include conf/extra/php_module.conf
+            - sudo nano  /etc/php/php.ini
+	        extension=mysqli
 
 ## 04 - Mysql
 
-	3.1 - Install mysql
-      sudo pacman -S mysql
+	4.1 - Install mysql
+      	      sudo pacman -S mysql
       
-      sudo su
-      cd /var/lib/mysql
-      rm -r *
+      	     sudo su
+             cd /var/lib/mysql
+             rm -r *
       
-      mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
-      systemctl start mysqld
-      systemctl start mysql.service
-      systemctl start mariadb
-      mysql (Check)
-      sudo mysql_secure_installation
+             mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+             systemctl start mysqld
+             systemctl start mysql.service
+             systemctl start mariadb
+             mysql (Check)
+             sudo mysql_secure_installation
       
-     MySql Password
-      mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
-      mysql -u root
-      MariaDB [(none)]> use mysql
-      MariaDB [mysql]> flush privileges;
-      MariaDB [mysql]> ALTER USER 'root'@'localhost' IDENTIFIED BY 'new_password';
-      MariaDB [mysql]> exit     
+         MySql Password
+             mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+             mysql -u root
+             MariaDB [(none)]> use mysql
+             MariaDB [mysql]> flush privileges;
+             MariaDB [mysql]> ALTER USER 'root'@'localhost' IDENTIFIED BY 'new_password';
+             MariaDB [mysql]> exit     
       
 ## 06 - Extras
 

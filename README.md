@@ -1,5 +1,5 @@
 ![Repo Image](https://github.com/lalantham/web-server-linux/blob/master/img.png)
-# LAMP on Arch (Ubuntu)
+# LAMP on Arch
 
 >Complete Guild for install apache, php, mysql in linux and configure 
 

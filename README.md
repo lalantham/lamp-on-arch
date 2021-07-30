@@ -15,6 +15,9 @@
 
 	2.1 - Install PHP
 			sudo pacman -S php php-apache
+	2.2 - PHP Configs
+	      sudo nano /etc/php/php.ini
+	      		date.timezone = Asia/Colombo
 
 ## 03 - PHP Mysql Module
 
@@ -52,6 +55,28 @@
              MariaDB [mysql]> flush privileges;
              MariaDB [mysql]> ALTER USER 'root'@'localhost' IDENTIFIED BY 'new_password';
              MariaDB [mysql]> exit     
+	     
+## 05 - PHPMyAdmin
+
+	4.1 - Install phpmyadmin
+      	      sudo pacman -S phpmyadmin
+      
+      	      sudo gedit /etc/php/php.ini
+              Uncomment = extension=mysqli, extension=pdo_mysql
+        5.2 phpmyadmin configs
+	      sudo touch /etc/httpd/conf/extra/phpmyadmin.conf
+	      sudo nano /etc/httpd/conf/extra/phpmyadmin.conf
+	      		Alias /phpmyadmin "/usr/share/webapps/phpMyAdmin"
+			<Directory "/usr/share/webapps/phpMyAdmin">
+			    DirectoryIndex index.php
+			    AllowOverride All
+			    Options FollowSymlinks
+			    Require all granted
+			</Directory>
+	5.3 httpd config
+	     sudo gedit /etc/httpd/conf/httpd.conf
+		# phpMyAdmin configuration
+		Include conf/extra/phpmyadmin.conf
       
 ## 06 - Extras
 
